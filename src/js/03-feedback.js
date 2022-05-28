@@ -18,6 +18,7 @@ populateTextarea();
 
 function onFormTextInput(evt) {
     let formData = localStorage.getItem(STORAGE_KEY);
+    refs.textarea.value = refs.textarea.value.trim();
 
     formData = formData ? JSON.parse(formData) : {};
     formData[evt.target.name] = evt.target.value;
@@ -39,8 +40,8 @@ function populateTextarea() {
 function onFormSubmit(evt) {
     evt.preventDefault();
 
-    consoleData.email = refs.email.value
-    consoleData.message = refs.textarea.value
+    consoleData.email = refs.email.value;
+    consoleData.message = refs.textarea.value;
 
     console.table(consoleData);
 
